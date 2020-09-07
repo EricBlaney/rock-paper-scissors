@@ -1,0 +1,197 @@
+<html>
+<title>Rock-Paper-Scissors</title>
+<style>
+
+    h1{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 50pt;
+        margin-bottom: 0;
+    }
+
+</style>
+
+
+<body style="background-color:  #C7E8F1">
+
+    <h1>
+        ROSHAMBO
+    </h1>
+
+    <h2>
+        Instructions:  This game will be played until someone achieves three points. <br>
+        <li>
+            Paper beats rock.
+        </li> 
+        <li>
+            Rock beats scissors.
+        </li>
+        <li>
+            Scissors beats paper.
+        </li>
+            Win a round to get one point.  Use the buttons below to make your selection.
+
+    </h2>
+
+<script>
+
+var computerScore = Number(0);
+var playerScore = Number(0);
+var playerSelection;
+var computerSelection;
+var gameElement;
+
+
+
+
+
+
+function computerPlay(computerSelection) {
+
+var randomNumber = Math.random(); 
+
+    if (randomNumber > 0.66) {
+
+        return computerSelection = "rock" ;
+
+        }  else if (randomNumber < 0.66 && randomNumber > 0.33) {
+
+            return computerSelection = "scissors" ;
+
+        }  else if (randomNumber < 0.33) {
+
+            return computerSelection = "paper" ;
+
+}
+}
+
+function scoreTally() {
+    
+    if (playerSelection == computerSelection) {
+        
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". It is a tie!" ;
+    }          
+    
+    else if (playerSelection === "scissors" && computerSelection === "rock") {
+
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". Computer gets a point!" ;
+        playerScore,
+        computerScore = computerScore + 1;
+        return [playerScore, computerScore] ;
+
+    }
+
+    else if (playerSelection === "scissors" && computerSelection === "paper") {
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". You get a point!" ;
+        playerScore = playerScore + 1,
+        computerScore;
+        return [playerScore, computerScore] ;
+    }
+
+    else if (playerSelection === "paper" && computerSelection === "rock") {
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". You get a point!" ;
+        playerScore = playerScore + 1,
+        computerScore;
+        return [playerScore, computerScore] ;
+    }
+
+    else if (playerSelection === "paper" && computerSelection === "scissors") {
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". Computer gets a point!" ;
+        playerScore,
+        computerScore = computerScore + 1;
+        return [playerScore, computerScore] ;
+    }
+
+    else if (playerSelection === "rock" && computerSelection === "scissors") {
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". You get a point!" ;
+        playerScore = playerScore + 1,
+        computerScore;
+        return [playerScore, computerScore];
+
+    }
+
+    else if (playerSelection === "rock" && computerSelection === "paper") {
+        document.getElementById("p1").innerHTML =  "You chose " + playerSelection + ", and the computer chose " + computerSelection + ". Computer gets a point!" ;
+        playerScore,
+        computerScore = computerScore + 1;
+        return [playerScore, computerScore] ;
+        
+    }
+
+
+
+}
+
+function pointsTotal() {
+
+        document.getElementById("p2").innerHTML =  "Player Score = " + playerScore + "." ;
+        document.getElementById("p3").innerHTML =  "Computer Score = " + computerScore + "." ;
+        return [playerScore, computerScore] ;
+
+}
+
+function rockChoice() {
+    gameFlow([playerScore, computerScore] = pointsTotal([playerScore, computerScore] = scoreTally(playerSelection = "rock", computerSelection = computerPlay())));
+}
+
+function paperChoice() {
+    gameFlow([playerScore, computerScore] = pointsTotal([playerScore, computerScore] = scoreTally(playerSelection = "paper", computerSelection = computerPlay())));
+}
+
+function scissorsChoice() {
+    gameFlow([playerScore, computerScore] = pointsTotal([playerScore, computerScore] = scoreTally(playerSelection = "scissors", computerSelection = computerPlay())));
+}
+
+
+function gameFlow() {
+
+    if (playerScore == 3) {
+
+    document.getElementById("p4").innerHTML = "CONGRATULATIONS!  YOU WON THE GAME!  PLEASE PLAY AGAIN." ;
+    playerScore = 0,
+    computerScore = 0;
+    return [playerScore, computerScore];
+
+    }  else if (computerScore == 3) {
+    document.getElementById("p4").innerHTML = "OH DARN.  YOU LOSE.  BETTER LUCK NEXT TIME!" ;
+    playerScore = 0,
+    computerScore = 0;
+    return [playerScore, computerScore];
+
+    }  else if (computerScore < 3 && playerScore < 3) {
+    document.getElementById("p4").innerHTML = "Please choose your next move." ;
+    return [playerScore, computerScore];
+    }
+
+}
+
+
+</script>
+
+<input id = "ROSHAMBO" type = "button" value = "rock" onClick = "rockChoice()">  <br>
+<input id = "ROSHAMBO1" type = "button" value = "paper" onClick = "paperChoice()">  <br>
+<input id = "ROSHAMBO2" type = "button" value = "scissors" onClick = "scissorsChoice()">
+
+
+<p id="p1"></p>
+
+<br>
+
+<p id="p2">
+
+</p>
+
+<br>
+
+<p id="p3">
+
+</p>
+
+<br>
+
+<p id="p4">
+
+</p>
+
+</body>
+
+</html>
